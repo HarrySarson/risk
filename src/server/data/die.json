@@ -1,0 +1,88 @@
+{
+  "faces": [
+    {
+      1: 4,
+      2: 3,
+      3: 2,
+      4: 1,
+      5: 1,
+      6: 1,
+    },
+    {
+      // ...
+      
+      
+    }  
+  ],
+  
+  "color": [
+    "white",
+    "yellow",
+    "orange",
+    "red",
+    "black",
+  ],
+  
+  "maximumArmySize": [
+    5,
+    10,
+    18,
+    30,
+  ],
+  // casualities are multiplied by the multiplier
+  // corresponding to the lowest ranked dice.
+  // e.g. yellow vs red: casualities are multiplied by
+  // the multiplier corresponding to yellow (which is 2)
+  "casualityMultiplier": [
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],  
+}
+
+/*
+
+look at "Make your own dice.doc", double check with
+the info below to make sure they match.
+
+= The White Die
+The White die is the weakest of the five dice, with no fewer than 4 of the 12 faces carrying a “1” value.
+• Total of all face values: 31
+• Average: 2.6
+The White die is used for battles involving the following ranges of army size:
+• When to use: 1 to 5 battalions
+
+= The Yellow Die
+The Yellow die is heavy on 2s, with 25% of all faces carrying that number. The Yellow die is more powerful than the
+White, but just barely.
+• Total of all face values: 35
+• Average: 2.9
+The Yellow die is used for battles involving the following ranges of army size:
+• When to use: 6 to 10 battalions
+
+= The Green Die
+Measuring just 3.5 on the Richter scale, the Green die occupies the center ground. It can dominate against smaller
+armies.
+• Total of all face values: 42
+• Average: 3.5
+The Green die is used for battles involving the following ranges of army size:
+• When to use: 11 to 18 battalions 
+= 
+The Red Die
+Now we’re getting somewhere! The Red die is capable of succeeding in the toughest of conditions.
+• Total of all face values: 49
+• Average: 4.1
+The Red die is used for battles involving the following ranges of army size:
+• When to use: 19 to 30 battalions
+
+= The Black Die
+They don’t come any tougher than the Black die. With an average roll of 4.5, the Black die really takes some stopping.
+It can be stopped, though, in its track by a White die if the roll goes against it.
+• Total of all face values: 54
+• Average: 4.5
+The Black die is used for battles involving the following ranges of army size:
+• When to use: 31 and up battalions 
+
+*/
