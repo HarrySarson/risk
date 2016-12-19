@@ -5,7 +5,19 @@
         "Alberta",
         "Kamchatka",
         "Northwest Territory",
-    ],
+	    ],
+    },
+    "Alberta": {
+      "neighbours": [
+        "Alaska",
+        "Alberta",
+        "Kamchatka",
+        "Ontario",
+        "Qikiqtaaluk",
+        "Northwest Territory",
+        "Western United States",
+	    ],
+    },    
   },
   "continents": {
     "Europe": [
@@ -19,7 +31,11 @@
     ],
   }
 },  
+
++++ extras +++
+
   ---- North America (5)
+Alaska
 Alberta[note 1]
 Central America
 Eastern United States

@@ -1,0 +1,67 @@
+{
+  deck: [
+	{
+		"territory": "Afghanistan",
+		"type": 0,
+	},
+	{
+		"territory": "Alaska",
+		"type": 0,
+	},
+	{
+		"territory": "Alberta",
+		"type": 0,
+	}
+  ],
+  types: [
+    "Infantry",
+    "Cavalry",
+    "Artillery",
+    "Wild",
+  ],
+},
+
++++ extras +++
+
+check spelling against board.json
+
+Argentina – Infantry 
+Brazil- Artillery 
+Central America – Calvary 
+China – Calvary 
+Congo –Calvary 
+East Africa – Artillery 
+Eastern Australia – Infantry 
+Eastern United States – Artillery 
+Egypt – Infantry 
+Great Britain – Calvary 
+Greenland –Calvary 
+Iceland – Infantry 
+India –Infantry 
+Indonesia –Calvary 
+Irkutsk –Infantry 
+Japan- Infantry 
+Kamchatka – Calvary 
+Madagascar – Infantry 
+Middle East – Artillery 
+Mongolia – Artillery 
+New Guinea – Calvary 
+North Africa – Infantry 
+Northern Europe – Calvary 
+Northwest Territory – Artillery 
+Ontario –Calvary 
+Peru – Calvary 
+Quebec – Artillery 
+Scandinavia – Artillery 
+Siam – Artillery 
+Siberia – Artillery 
+South Africa – Artillery 
+Southern Europe – Calvary 
+Ukraine – Artillery 
+Ural – Calvary 
+Venezuela – Artillery 
+Western Australia – Artillery 
+Western Europe – Infantry 
+Western United States – Infantry 
+Wild Card (x2) 
+Yakutsk – Calvary 
