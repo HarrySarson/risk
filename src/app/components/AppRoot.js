@@ -1,30 +1,34 @@
+import {Map} from 'immutable';
 import React from 'react/addons';
+import Debug from 'debug';
+import Actions from '../actions';
 import Cart from './Cart';
 
-import config from '../../../config/app';
+
+import config from '../config/app';
+
+var debug = Debug('myApp');
 
 /*
  * @class AppRoot
  * @extends React.Component
  */
-class AppRoot extends React.Component {
+class AppRoot extends React.PureComponent {
 
-  /*
-   * AppRootly PureRenderMixin
-   *
-   * in React 0.13 there is no way to attach mixins to ES6 classes
-   * this is a workaround to solve this
-   * http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#mixins
-   *
-   * @method shouldComponentUpdate
-   * @returns {Boolean}
+  /* 
+   * @returns {Object} childContext
    */
-  shouldComponentUpdate () {
-    return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
-  }
+  getChildContext () {
 
+    // share only actions with childs
+    return {
+      actions: this.props.actions
+    };
+  }
+  
   /*
-   * @method render
+   * React element to be rendered.
+   *
    * @returns {JSX}
    */
   render () {
@@ -35,9 +39,16 @@ class AppRoot extends React.Component {
   }
 }
 
+// Context types validation
+AppRoot.childContextTypes = Component.contextTypes;
+
 // Prop types validation
 AppRoot.propTypes = {
-  state: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.instanceOf(Actions).isRequired,
+  state: React.PropTypes.instanceOf(Map).isRequired
 };
 
 export default AppRoot;
+
+
+

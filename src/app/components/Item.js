@@ -1,24 +1,24 @@
+import {Map} from 'immutable';
 import React from 'react/addons';
+import Debug from 'debug';
 
+var debug = Debug('myApp');
 /*
  * @class Item
  * @extends React.Component
  */
-class Item extends React.Component {
+class Item extends React.PureComponent {
 
   /*
-   * @method shouldComponentUpdate
-   * @returns {Boolean}
-   */
-  shouldComponentUpdate () {
-    return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
-  }
-
-  /*
-   * @method render
+   * Render the item.
+   *
    * @returns {JSX}
    */
   render () {
+    var item = this.props.item;
+
+    debug('render <Item/>', item.get('title'));
+    
     return <li className="item">{this.props.item.title} - ${this.props.item.price}</li>;
   }
 }

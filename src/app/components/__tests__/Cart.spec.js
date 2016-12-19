@@ -36,7 +36,7 @@ describe('Cart', () => {
     expect(title.getDOMNode().textContent).toEqual('My Cart');
     expect(items.length).toBe(3);
     expect(items[0].props).toEqual({
-      item: cartProp.items[0]
+      item: cartProp.getIn(['items', 0])
     });
   });
 });

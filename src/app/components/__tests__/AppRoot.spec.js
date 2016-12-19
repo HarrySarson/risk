@@ -38,7 +38,7 @@ describe('AppRoot', () => {
     expect(title.getDOMNode().textContent).toEqual('My React App');
     expect(carts.length).toBe(1);
     expect(carts[0].props).toEqual({
-      cart: state.cart
+      cart: state.get('cart')
     });
   });
 });
