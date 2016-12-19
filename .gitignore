@@ -31,7 +31,7 @@ node_modules
 jspm_packages
 
 # built files
-ui/dist
+dist
 
 # Optional npm cache directory
 .npm
