@@ -1,0 +1,68 @@
+{
+  "territories": {
+    "Alaska": {
+      "neighbours": [
+        "Alberta",
+        "Kamchatka",
+        "Northwest Territory",
+    ],
+  },
+  "continents": {
+    "Europe": [
+      "Great Britain",
+      "Iceland",
+      "Northern Europe",
+      "Scandinavia",
+      "Southern Europe",
+      "Ukraine",
+      "Western Europe",
+    ],
+  }
+},  
+  ---- North America (5)
+Alberta[note 1]
+Central America
+Eastern United States
+Greenland
+Northwest Territory
+Ontario[note 1]
+Quebec[note 1]
+Western United States
+South America (2)
+Argentina
+Brazil
+Peru
+Venezuela
+  ---- Europe (5)
+Great Britain[note 1]
+Iceland
+Northern Europe
+Scandinavia
+Southern Europe
+Ukraine[note 1]
+Western Europe
+  ---- Africa (3)
+Congo[note 1]
+East Africa
+Egypt
+Madagascar
+North Africa
+South Africa
+  ---- Asia (7)
+Afghanistan[note 2]
+China
+India[note 1]
+Irkutsk
+Japan
+Kamchatka
+Middle East
+Mongolia
+Siam[note 1]
+Siberia
+Ural
+Yakutsk
+  ---- Australia (2)
+Eastern Australia
+Indonesia
+New Guinea
+Western Australia
