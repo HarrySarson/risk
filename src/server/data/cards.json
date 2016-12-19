@@ -1,17 +1,17 @@
 {
   deck: [
-	{
-		"territory": "Afghanistan",
-		"type": 0,
-	},
-	{
-		"territory": "Alaska",
-		"type": 0,
-	},
-	{
-		"territory": "Alberta",
-		"type": 0,
-	}
+    {
+      "territory": "Afghanistan",
+      "type": 0,
+    },
+    {
+      "territory": "Alaska",
+      "type": 0,
+    },
+    {
+      "territory": "Alberta",
+      "type": 0,
+    }
   ],
   types: [
     "Infantry",
@@ -20,7 +20,7 @@
     "Wild",
   ],
 },
-
+/*
 +++ extras +++
 
 check spelling against board.json
@@ -65,3 +65,4 @@ Western Europe – Infantry
 Western United States – Infantry 
 Wild Card (x2) 
 Yakutsk – Calvary 
+*/
