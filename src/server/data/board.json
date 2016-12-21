@@ -16,33 +16,30 @@
       ],
     }, 
     "Central America": {
-	    "neighbours": [
-		 "Eastern United States",
-		    "Venezuela",
-		    "Western United States"
+      "neighbours": [
+        "Eastern United States",
+        "Venezuela",
+        "Western United States"
       ],
     },
-	  "Northwest Territory": {
-	  "neighbours": [
-		  "Alaska",
-		  "Alberta",
-		  "Ontario",
-		  "Qikiqtaaluk"
-	  ],
+    "Northwest Territory": {
+      "neighbours": [
+        "Alaska",
+        "Alberta",
+        "Ontario",
+        "Qikiqtaaluk"
+      ],
     },
-	 "Scandanavia": {
-		 "neighbours" [
-		 "Great Britain",
-		 "Iceland",
-		 "Northen Europe",
-		 "Svalvard",
-		 "Ukraine",
-		 
-	  ],
+    "Scandanavia": {
+       "neighbours" [
+       "Great Britain",
+       "Iceland",
+       "Northen Europe",
+       "Svalvard",
+       "Ukraine",
+      ],
     },
-	  
-  
-  },	
+  },  
   "continents": {
     "Europe": [
       "Great Britain",
@@ -114,4 +111,4 @@ Eastern Australia
 Indonesia
 New Guinea
 Western Australia
-*/	
+*/  
