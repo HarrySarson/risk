@@ -1,14 +1,15 @@
-import { REINFORCE } from '../actions/reinforce';
-import { CHANGE_OWNER } from '../actions/change-owner';
+import { types } from '../actions';
+
 import Debug from 'debug';
 
 let debug = Debug('risk:app:reducers');
 
 
 export function territories(state, action) {
-  debug('recieved action: ', action);
+  debug('reducing action: ', action);
+  
   switch (action.type) {
-    case REINFORCE:
+    case: types.GAME.REINFORCE
       return state.update(
         action.territory, 
         territoryObj => territoryObj.update(
@@ -16,7 +17,7 @@ export function territories(state, action) {
           troopCount => troopCount + action.reinforcementCount,
         ),
       );
-    case CHANGE_OWNER:
+    case types.GAME.CHANGE_OWNER:
       return state.update(
         action.territory,
         territoryObj => territoryObj.set(
