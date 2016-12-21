@@ -5,20 +5,40 @@
         "Alberta",
         "Kamchatka",
         "Northwest Territory",
-	    ],
+      ],
     },
     "Alberta": {
       "neighbours": [
         "Alaska",
-        "Alberta",
-        "Kamchatka",
         "Ontario",
-        "Qikiqtaaluk",
         "Northwest Territory",
         "Western United States",
-	    ],
-    },    
-  },
+      ],
+    }, 
+    "Central America": {
+	    "neighbours": [
+		 "Eastern United States",
+		    "Venezuela",
+		    "Western United States"
+      ],
+    },
+	  "Northwest Territory": {
+	  "neighbours": [
+		  "Alaska",
+		  "Alberta",
+		  "Ontario",
+		  "Qikiqtaaluk"
+	  ],
+    },
+	 "Scandanavia": {
+		 "neighbours" [
+		 "
+		 
+	  ],
+    },
+	  
+  
+  },	
   "continents": {
     "Europe": [
       "Great Britain",
@@ -37,7 +57,7 @@ Svalbard - Infantry
 Phillipines - Cannon
 Falkland Islands - Cavalry
 New Zealand - Cannon
-Oikiqtaluk - Infantry
+Qikiqtaaluk - Infantry
 Hawaii - Cavalry
 +++++++++++++++
 
@@ -51,11 +71,11 @@ Northwest Territory
 Ontario[note 1]
 Quebec[note 1]
 Western United States
-South America (2)
+  ----South America (2)
 Argentina
 Brazil
 Peru
-Venezuela
+Venezuela/
   ---- Europe (5)
 Great Britain[note 1]
 Iceland
@@ -89,4 +109,4 @@ Eastern Australia
 Indonesia
 New Guinea
 Western Australia
-*/
+*/	
