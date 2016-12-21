@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { territories } from './territories';
+import { game } from './game';
 
 export const rootReducer = combineReducers({
-  territories,
+  game,
 });
