@@ -1,9 +1,12 @@
 import { REINFORCE } from '../actions/reinforce';
 import { CHANGE_OWNER } from '../actions/change-owner';
+import Debug from 'debug';
 
+let debug = Debug('risk:app:reducers');
 
 
 export function territories(state, action) {
+  debug('recieved action: ', action);
   switch (action.type) {
     case REINFORCE:
       return state.update(
