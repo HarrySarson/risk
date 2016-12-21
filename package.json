@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node src/server/index.js",
     "postinstall": "webpack",
-    "webpack": "webpack",
+    "webpack": "webpack -d",
     "webpack-watch": "webpack --watch --colors"
   },
   "repository": {
