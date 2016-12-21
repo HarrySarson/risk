@@ -3,8 +3,6 @@ import { getTypes } from 'helper';
 
 let debug = Debug('risk:app:actions');
 
-const 
-
 export const GAME = getTypes([
   'CHANGE_OWNER',
   'REINFORCE',
