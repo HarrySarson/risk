@@ -1,5 +1,5 @@
 import Debug from 'debug';
-import { getTypes } from 'helper';
+import { getTypes } from './helper';
 
 let debug = Debug('risk:app:actions');
 

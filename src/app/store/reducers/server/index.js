@@ -1,103 +1,66 @@
-import { SERVER } from '../actions/server';
-import { initialState } from '../../initial-state';
+import { combineReducers } from 'redux';
+import { SERVER } from '../../actions/server';
+import Immutable from 'immutable';
 
 import Debug from 'debug';
 
 let debug = Debug('risk:app:reducers');
 
-const initialState = {
+const initialState = Immutable.fromJS({
     
   connected: false,
   
-  attemptionConnect: false,
-  
-  validActions: [],
-      
+  attemptingConnection: false,
+        
   gameState: {      
     valid: false,      
     isFetching: false,      
     didInvalidate: false,      
   },
   
-  // TODO: confusing name? 
-  // list of actions that client can send to server.
-  validActions: {      
-    value: [],
-    valid: false,
-    isFetching: false,
-    didInvalidate: false,      
-  },
   
-};
+});
 
 const reducers = {
 
-  connected(state = initialState.connected, action) {
+  connected(state = initialState.get('connected'), action) {
     debug('reduce server.connected: ', action);
     
     switch (action.type) {
-      
+      case SERVER.CONNECTION.MAKE:
+        return true;
+      case SERVER.CONNECTION.LOSE:
+        return false;      
       default:
         return state;
     }
+  },
   
-  }
-
-function gameState(state = initialState.gameState, action) {
-  debug('reduce server.gameState: ', action);
-  
-  switch (action.type) {
+  attemptingConnection(state = initialState.get('attemptingConnection'), action) {
+    debug('reduce server.attemptingConnection: ', action);
     
-    case SERVER.REQUEST.STATE:
-      return state.merge({
-        isFetching: true,
-        didInvalidate: false,
-      });
+    switch (action.type) {
+      case SERVER.CONNECTION.ATTEMPT:
+        return true;
+      case SERVER.CONNECTION.LOSE:
+      case SERVER.CONNECTION.MAKE:
+      case SERVER.CONNECTION.FAIL:
+        return false;      
+      default:
+        return state;
+    }    
+  },
+
+  gameState(state = initialState.get('gameState'), action) {
+    debug('reduce server.gameState: ', action);
+    
+    switch (action.type) {
+            
+      default:
+        return state;
       
-    default:
-      return state;
-    
-  }
-}
+    }
+  },
+};
 
-function validActions(state = initialState.validActions, action) {
-  debug('reduce server.gameState: ', action);
-  
-  switch (action.type) {
-    
-    case SERVER.REQUEST.VALID_ACTIONS:
-      return state.merge({
-        isFetching: true,
-        didInvalidate: false,
-      });
-      
-    default:
-      return state;
-    
-  }
-}
-
-export function server(state = initialState, action) {
-  debug('reducing server: ', action);
-  
-  switch (action.type) {
-    case: SERVER.REQUEST.STATE
-      return state.update(
-        action.territory, 
-        territoryObj => territoryObj.update(
-          'troopCount', 
-          troopCount => troopCount + action.reinforcementCount,
-        ),
-      );
-    case types.GAME.CHANGE_OWNER:
-      return state.update(
-        action.territory,
-        territoryObj => territoryObj.set(
-          'owner',
-          action.newOwner,
-        ),
-      );
-    default:
-      return state;
-  }
-}
+export const server = combineReducers(reducers);
