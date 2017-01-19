@@ -1,37 +1,32 @@
 const path = require('path');
-const Express = require('express');
-const SocketIo = require('socket.io');
+const express = require('express');
+const WebSocketServer = require('ws').server;
 const http = require('http');
 
-
-const PATH_STYLES = path.resolve(__dirname, '../client/styles');
-const PATH_DIST = path.resolve(__dirname, '../../dist');
-
-import { initialState } from './initial-state';
 import Debug from 'debug';
 
 let debug = Debug('risk:server:main');
-let app = Express();
-
-app.use('/styles', Express.static(PATH_STYLES));
-app.use(Express.static(PATH_DIST));
 
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
+let app = express();
+let server = http.createServer(app);
+
+let wss = new WebSocketServer({
+  server,
 });
 
-debug('initial-state ', initialState);
+const port = 3000;
 
-let server = http.Server(app);
-let io = SocketIo(server);
-
-io.on('connection', socket => {
-  debug('connection made with', socket.id);
-  socket.emit('initial-state', JSON.stringify(initialState));
+wss.on('connection', ws => {
+  debug('Connection: ', ws);
+  
+  
+  ws.on('message', message {
+    debug('received: ', message);
+  });
 });
-
-server.listen(process.env.PORT || 3000, () => {
+  
+server.listen(process.env.PORT || port, () => {
   let port = server.address().port;
 
   debug('Server is listening on port %s', port);

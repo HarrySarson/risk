@@ -33,62 +33,76 @@ export const SERVER = {
   },
 };
 
+function connectionAttempt() {
+  return {
+    type: SERVER.CONNECTION.ATTEMPT,
+  };
+}
+
+const reconnectionAttempts = 10;
 
 export const server = {
-  connect(url, options) {
+  connect(url) {
     return (dispatch, getState) => {
       
-      debug(`Attemping connection to server at ${url}`);
+      let state = getState();
       
-      dispatch({
-        type: SERVER.CONNECTION.ATTEMPT,
+      if (state.getIn(['server', 'connection'])) {
+        debug('Already connected to server');
+        return;
+      } else if (state.getIn(['server', 'attemptingConnection'])) {
+        debug('Already attempting to connect to server');
+        return;
+      }
+      
+      debug(`Attemping connection to server at ${url || '/'}`);
+      
+      dispatch(connectionAttempt());
+      
+      
+      let socket = IO(url, {
+        transports: ['websocket'],
+        reconnectionAttempts: reconnectionAttempts,
       });
-      
-      let connectionStatus = new Promise((res, rej) => {
-      
-        let socket = IO('', {
-          transports: ['websocket']
-        });
 
-        socket.on('connect', () => {
-          
-          debug(`connection to server made, this client has id ${socket.id}`);
-          
-          dispatch({
-            type: SERVER.CONNECTION.MAKE,
-            id: socket.id,
-          });
-          
-          res();
-          
-        }).on('error', () => {
-          
-          debug('error connecting to socket');
-          
-          if (!getState().attemptingConnection) {
-            throw new Error('action creater server.connection: connection error when no connection was being attempted');
-          }
-          
-          rej();
-          
-          dispatch({
-            type: SERVER.CONNECTION.FAIL,
-          })
-        }).on('reconnect', (i) => {
-              
-          debug('reconnecting: ' + i);
-            
-        }).on('disconnect', () => {
-          
-          debug('disconnected from socket');
-          
-          dispatch({
-            type: SERVER.CONNECTION.LOSE,
-          });
-          
-          
+      socket.on('connect', () => {
+        
+        debug(`connection to server made, this client has id ${socket.id}`);
+        
+        dispatch({
+          type: SERVER.CONNECTION.MAKE,
+          id: socket.id,
         });
-      });      
+        
+      }).on('connect_error', err => {
+        
+        debug(`error connecting to server: ${err}`);
+        
+        if (!getState().getIn(['server', 'attemptingConnection'])) {
+          debug(new Error('action creater server.connection: connection error when no connection was being attempted'));
+        }
+          
+      }).on('reconnect_attempt', (i) => {
+        
+        debug(`attempting to reconnect to server, attempt: ${i}/${reconnectionAttempts}`);
+        
+      }).on('reconnect_failed', () => {
+        
+        debug(`connection to server failed`);
+        
+        dispatch({
+          type: SERVER.CONNECTION.FAIL,
+        });
+        
+      }).on('disconnect', () => {
+        
+        debug(`disconnected from socket`);
+        
+        dispatch({
+          type: SERVER.CONNECTION.LOSE,
+        });          
+        
+      });
     };
   },
   

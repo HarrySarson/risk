@@ -21,3 +21,8 @@ ul {
 li {
   margin: 5px 0 5px 0;
 }
+
+code {
+  display: block;
+  white-space: pre-wrap   
+}

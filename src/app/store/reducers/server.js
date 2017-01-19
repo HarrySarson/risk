@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
-import { SERVER } from '../../actions/server';
+import { combineReducers } from 'redux-immutable';
+import { SERVER } from '../actions/server';
 import Immutable from 'immutable';
 
 import Debug from 'debug';
